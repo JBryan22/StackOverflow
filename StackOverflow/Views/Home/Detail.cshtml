@@ -16,11 +16,11 @@
                     <h3>Answers</h3>
 					@if(User.Identity.Name != null)
                             {
-                                @Html.ActionLink("Answer this question", "Create", "Answer", new {m => m.QuestionId})
+                                @Html.ActionLink("Answer this question", "Create", "Answers", new {id = Model.QuestionId})
                             }
                             else
                             {
-                                @Html.ActionLink("Sign up/Sign in to answer this question!", "Registesr", "Account")
+                                @Html.ActionLink("Sign up/Sign in to answer this question!", "Register", "Account")
                             }
                    
                     @foreach (var answer in Model.Answers)

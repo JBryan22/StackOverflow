@@ -28,17 +28,13 @@ namespace StackOverflow.Controllers
             return View(_db.Questions.ToList());
         }
 
-        public async Task<IActionResult> Detail(int id)
+        public  IActionResult Detail(int id)
         {
-			var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-			var currentUser = await _userManager.FindByIdAsync(userId);
+		
 			var thisQuestion = _db.Questions.Include(m => m.Answers)
 				  .FirstOrDefault(m => m.QuestionId == id);
 
-            if (currentUser != null)
-            {
-                RedirectToAction("Details", "Questions", thisQuestion);
-            }
+
 
             return View(thisQuestion);
         }
