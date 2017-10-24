@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using StackOverflow.Models;
 
 namespace StackOverflow.ViewModels
 {
@@ -19,5 +20,8 @@ namespace StackOverflow.ViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+
+        public virtual Profile Profile { get; set; }
     }
 }

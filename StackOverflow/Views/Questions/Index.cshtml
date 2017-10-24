@@ -1,1 +1,20 @@
-﻿
+﻿@model IEnumerable<StackOverflow.Models.Question>
+
+<h2>Here are your questions asked, @User.Identity.Name</h2>
+<hr/>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var listQuestion in Model)
+        {
+            <li><a asp-action = "Detail" asp-route-id = "@listQuestion.QuestionId">@listQuestion.Title</a></li>
+        }
+    </ul>
+}
+else
+{
+    <p>Why no questions asked?!</p>
+}
+
+@Html.ActionLink("Ask a question", "Create")   

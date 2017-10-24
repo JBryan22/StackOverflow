@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using StackOverflow.Models;
 
 namespace StackOverflow.ViewModels
 {
@@ -6,5 +7,9 @@ namespace StackOverflow.ViewModels
     {
         public string Email { get; set; }
         public string Password { get; set; }
+
+        public bool hasLoggedIn { get; set; }
+
+
     }
 }

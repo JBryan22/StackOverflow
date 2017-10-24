@@ -13,9 +13,11 @@
         <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.2" />
     </ItemGroup>
 
-    <ItemGroup>
+	 <ItemGroup>
         <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
     </ItemGroup>
+
+
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
@@ -26,6 +28,8 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Questions\" />
+    <Folder Include="Views\Answers\" />
+    <Folder Include="Views\Profiles\" />
   </ItemGroup>
 
   <ItemGroup>

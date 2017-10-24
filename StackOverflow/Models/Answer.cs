@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StackOverflow.Models
 {
+    [Table("Answers")]
     public class Answer
     {
         [Key]
@@ -10,6 +12,11 @@ namespace StackOverflow.Models
         [Required]
         public string Answer_Body { get; set; }
         public bool Best_Answer { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
+        public int QuestionId { get; set; }
+
+        public virtual Question Question { get; set; }
+
+
+        public ApplicationUser User { get; set; }
     }
 }

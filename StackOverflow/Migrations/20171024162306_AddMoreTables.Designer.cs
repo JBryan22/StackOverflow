@@ -8,9 +8,10 @@ using StackOverflow.Models;
 namespace StackOverflow.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171024162306_AddMoreTables")]
+    partial class AddMoreTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -135,33 +136,6 @@ namespace StackOverflow.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("StackOverflow.Models.Answer", b =>
-                {
-                    b.Property<int>("AnswerId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Answer_Body")
-                        .IsRequired();
-
-                    b.Property<bool>("Best_Answer");
-
-                    b.Property<int?>("ProfileId");
-
-                    b.Property<int>("QuestionId");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("AnswerId");
-
-                    b.HasIndex("ProfileId");
-
-                    b.HasIndex("QuestionId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Answers");
-                });
-
             modelBuilder.Entity("StackOverflow.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -213,50 +187,6 @@ namespace StackOverflow.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("StackOverflow.Models.Profile", b =>
-                {
-                    b.Property<int>("ProfileId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("UserId");
-
-                    b.Property<string>("location");
-
-                    b.Property<byte[]>("profilePicture");
-
-                    b.HasKey("ProfileId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Profiles");
-                });
-
-            modelBuilder.Entity("StackOverflow.Models.Question", b =>
-                {
-                    b.Property<int>("QuestionId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Content_Body")
-                        .IsRequired();
-
-                    b.Property<int?>("ProfileId");
-
-                    b.Property<DateTime>("Submission_Date");
-
-                    b.Property<string>("Title")
-                        .IsRequired();
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("QuestionId");
-
-                    b.HasIndex("ProfileId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Questions");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
@@ -292,40 +222,6 @@ namespace StackOverflow.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("StackOverflow.Models.Answer", b =>
-                {
-                    b.HasOne("StackOverflow.Models.Profile")
-                        .WithMany("Answers")
-                        .HasForeignKey("ProfileId");
-
-                    b.HasOne("StackOverflow.Models.Question", "Question")
-                        .WithMany("Answers")
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("StackOverflow.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("StackOverflow.Models.Profile", b =>
-                {
-                    b.HasOne("StackOverflow.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("StackOverflow.Models.Question", b =>
-                {
-                    b.HasOne("StackOverflow.Models.Profile")
-                        .WithMany("Questions")
-                        .HasForeignKey("ProfileId");
-
-                    b.HasOne("StackOverflow.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
         }
     }

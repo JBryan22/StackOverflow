@@ -1,0 +1,20 @@
+﻿@model IEnumerable<StackOverflow.Models.Answer>
+
+<h2>Here are your answers, @User.Identity.Name!</h2>
+<hr/>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var listAnswer in Model)
+        {
+            <li><a asp-action = "Detail" asp-controller = "Questions" asp-route-id = "@listAnswer.QuestionId">@listAnswer.Answer_Body</a></li>
+        }
+    </ul>
+}
+else
+{
+    <p>You haven't answered any questions'!</p>
+}
+
+@Html.ActionLink("Back to profile", "Index", "Profiles")

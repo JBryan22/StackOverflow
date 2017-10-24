@@ -1,0 +1,30 @@
+﻿@model StackOverflow.Models.Question
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="detail-section">
+                <h2>@Html.DisplayFor(model => model.Title) Details</h2>
+                <p>@Html.DisplayFor(model => model.Content_Body)</p>
+                <p><a asp-controller="Questions" asp-action="Edit" asp-route-id="@Model.QuestionId">Edit</a> | <a asp-controller="Questions" asp-action="Delete" asp-route-id="@Model.QuestionId">Delete</a></p>
+
+                <div class="answer-section">
+                    <h3>Answers</h3>
+                    <h6><a asp-controller="Answers" asp-action="Create" asp-route-id="@Model.QuestionId">Add Answer</a></h6>
+                    @foreach (var answer in Model.Answers)
+                    {
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">@answer.Answer_Body</p>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

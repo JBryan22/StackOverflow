@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model StackOverflow.Models.Answer
+
+<h2>Edit your answer/h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.AnswerId)
+    @Html.LabelFor(model => model.Answer_Body)
+    @Html.EditorFor(model => model.Content_Body)
+    <input type="submit" value="Edit" />
+}
+@Html.ActionLink("Back to List", "Index")

@@ -1,28 +1,33 @@
 ﻿<Properties StartupConfiguration="{950D9872-42C3-48C4-B38A-184757A3902D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="StackOverflow/Views/Home/Index.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="StackOverflow/Views/Home/Detail.cshtml">
     <Files>
-      <File FileName="StackOverflow/Startup.cs" Line="60" Column="31" />
-      <File FileName="StackOverflow/StackOverflow.csproj" Line="1" Column="1" />
-      <File FileName="StackOverflow/Models/ApplicationDbContext.cs" Line="28" Column="37" />
-      <File FileName="StackOverflow/Models/ApplicationUser.cs" Line="3" Column="24" />
-      <File FileName="StackOverflow/Program.cs" Line="1" Column="1" />
-      <File FileName="StackOverflow/ViewModels/LoginViewModel.cs" Line="5" Column="32" />
-      <File FileName="StackOverflow/ViewModels/RegisterViewModel.cs" Line="17" Column="9" />
-      <File FileName="StackOverflow/appsettings.json" Line="6" Column="1" />
-      <File FileName="StackOverflow/Controllers/AccountController.cs" Line="49" Column="14" />
-      <File FileName="StackOverflow/Views/Shared/_Layout.cshtml" Line="29" Column="34" />
-      <File FileName="StackOverflow/Properties/launchSettings.json" Line="1" Column="1" />
-      <File FileName="StackOverflow/Controllers/HomeController.cs" Line="1" Column="1" />
-      <File FileName="StackOverflow/Views/Account/Index.cshtml" Line="17" Column="2" />
-      <File FileName="StackOverflow/Views/Account/Register.cshtml" Line="16" Column="5" />
-      <File FileName="StackOverflow/Views/Account/Login.cshtml" Line="18" Column="22" />
-      <File FileName="StackOverflow/Models/Question.cs" Line="8" Column="26" />
-      <File FileName="StackOverflow/Models/Answer.cs" Line="9" Column="21" />
-      <File FileName="StackOverflow/appsettings.Development.json" Line="1" Column="1" />
-      <File FileName="StackOverflow/bundleconfig.json" Line="1" Column="1" />
-      <File FileName="StackOverflow/Views/Questions/Index.cshtml" Line="1" Column="1" />
       <File FileName="StackOverflow/Views/Questions/UserQuestions.cshtml" Line="1" Column="1" />
-      <File FileName="StackOverflow/Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="StackOverflow/Views/Home/Index.cshtml" Line="22" Column="42" />
+      <File FileName="StackOverflow/Models/ApplicationUser.cs" Line="7" Column="9" />
+      <File FileName="StackOverflow/Models/Profile.cs" Line="26" Column="9" />
+      <File FileName="StackOverflow/Models/Question.cs" Line="21" Column="44" />
+      <File FileName="StackOverflow/Models/Answer.cs" Line="13" Column="22" />
+      <File FileName="StackOverflow/Models/ApplicationDbContext.cs" Line="16" Column="51" />
+      <File FileName="StackOverflow/Controllers/ProfilesController.cs" Line="37" Column="1" />
+      <File FileName="StackOverflow/Controllers/QuestionsController.cs" Line="46" Column="10" />
+      <File FileName="StackOverflow/Controllers/AnswersController.cs" Line="62" Column="9" />
+      <File FileName="StackOverflow/ViewModels/RegisterViewModel.cs" Line="25" Column="53" />
+      <File FileName="StackOverflow/Controllers/AccountController.cs" Line="55" Column="7" />
+      <File FileName="StackOverflow/Views/Account/Register.cshtml" Line="16" Column="1" />
+      <File FileName="StackOverflow/Views/Questions/Index.cshtml" Line="17" Column="36" />
+      <File FileName="StackOverflow/Views/Questions/Create.cshtml" Line="12" Column="43" />
+      <File FileName="StackOverflow/Views/Shared/_Layout.cshtml" Line="34" Column="8" />
+      <File FileName="StackOverflow/Views/Questions/Edit.cshtml" Line="14" Column="48" />
+      <File FileName="StackOverflow/Views/Questions/Delete.cshtml" Line="19" Column="56" />
+      <File FileName="StackOverflow/Views/Answers/Index.cshtml" Line="1" Column="1" />
+      <File FileName="StackOverflow/Views/Answers/Create.cshtml" Line="15" Column="5" />
+      <File FileName="StackOverflow/Views/Answers/Edit.cshtml" Line="16" Column="20" />
+      <File FileName="StackOverflow/Views/Answers/Delete.cshtml" Line="19" Column="56" />
+      <File FileName="StackOverflow/Controllers/HomeController.cs" Line="38" Column="37" />
+      <File FileName="StackOverflow/Views/Questions/Detail.cshtml" Line="22" Column="73" />
+      <File FileName="StackOverflow/Views/Profiles/Index.cshtml" Line="8" Column="16" />
+      <File FileName="StackOverflow/ViewModels/LoginViewModel.cs" Line="15" Column="2" />
+      <File FileName="StackOverflow/Views/Home/Detail.cshtml" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

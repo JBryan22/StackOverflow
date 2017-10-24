@@ -6,12 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using StackOverflow.Models;
 using StackOverflow.ViewModels;
+using System.Security.Claims;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace StackOverflow.Controllers
 {
     public class AccountController : Controller
     {
+        public int count = 0;
+
         private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -40,14 +43,28 @@ namespace StackOverflow.Controllers
             var user = new ApplicationUser { UserName = model.Email };
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if(result.Succeeded)
-            {
-                return RedirectToAction("Index");
+            {                
+                return RedirectToAction("Login");
             }
             else
             {
                 return View();
             }
         }
+
+      
+        public async Task<IActionResult> CreateProfile()
+        {
+			Profile newProfile = new Profile();
+			var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+			var currentUser = await _userManager.FindByIdAsync(userId);
+			newProfile.User = currentUser;
+			_db.Add(newProfile);
+			_db.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
+
 
         public IActionResult Login()
         {
@@ -59,8 +76,18 @@ namespace StackOverflow.Controllers
         {
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
             if (result.Succeeded)
-            {
-                return RedirectToAction("Index");
+                
+            {  if (model.hasLoggedIn == false)
+                {
+                    model.hasLoggedIn = true;
+
+                    return RedirectToAction("CreateProfile");
+                }
+
+                else 
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
             else
             {
@@ -72,7 +99,7 @@ namespace StackOverflow.Controllers
         public async Task<IActionResult> LogOff()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

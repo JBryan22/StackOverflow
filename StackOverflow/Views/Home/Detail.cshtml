@@ -1,0 +1,38 @@
+﻿@model StackOverflow.Models.Question
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="detail-section">
+                <h2>@Html.DisplayFor(model => model.Title) Details</h2>
+                <p>@Html.DisplayFor(model => model.Content_Body)</p>
+
+
+                <div class="answer-section">
+                    <h3>Answers</h3>
+					@if(User.Identity.Name != null)
+                            {
+                                @Html.ActionLink("Answer this question", "Create", "Answer", new {m => m.QuestionId})
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Sign up/Sign in to answer this question!", "Registesr", "Account")
+                            }
+                   
+                    @foreach (var answer in Model.Answers)
+                    {
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">@answer.Answer_Body</p>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
